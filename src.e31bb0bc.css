@@ -152,7 +152,7 @@ address {
 }
 
 .main-nav {
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -235,7 +235,12 @@ address {
     color: #d41443;
   }
   .btn-header:hover, .btn-header:focus {
-    background-color: #ecebeb;
+    background-color: #d41443;
+    color: #ffffff;
+    outline: none;
+  }
+  .btn-header:hover .btn-icon, .btn-header:focus .btn-icon {
+    fill: #ffffff;
   }
 }
 
@@ -254,7 +259,6 @@ address {
   border: none;
   background-color: transparent;
   fill: #d41443;
-  z-index: 55;
 }
 @media (min-width: 768px) {
   .menu-button {
@@ -266,6 +270,28 @@ address {
 @media (min-width: 1050px) {
   .menu-button {
     display: none;
+  }
+}
+
+.menu-button.is-open {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 60;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  overflow: scroll;
+}
+@media (min-width: 768px) {
+  .menu-button.is-open {
+    position: absolute;
+    top: 10px;
+    right: 255px;
+    z-index: 100;
+    background-color: #e18298;
+    transform: translateY(25%);
+    transition: transform 500ms linear;
   }
 }
 
@@ -284,16 +310,18 @@ address {
 
 .mobile-container {
   position: absolute;
+  top: 0;
   right: 0;
   width: 250px;
   height: 500px;
-  z-index: 50;
-  background-color: rgba(94, 27, 27, 0.3);
+  background-color: #e17992;
+  padding: 60px 20px;
+  z-index: 55;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   overflow: auto;
-  transition: opacity 250ms linear, visibility 250ms liner;
+  transform: translateX(100%);
 }
 @media (min-width: 768px) {
   .mobile-container {
@@ -311,34 +339,8 @@ address {
   visibility: visible;
   pointer-events: initial;
   overflow: scroll;
-}
-
-.mobile-content {
-  position: absolute;
-  right: 0;
-  width: 250px;
-  height: 500px;
-  background-color: #e17992;
-  padding: 60px 20px;
-  transform: translateX(100%);
-  transition: transform 250ms linear;
-}
-@media (min-width: 768px) {
-  .mobile-content {
-    height: 1000px;
-  }
-}
-
-.mobile-container.is-open .mobile-content {
-  width: 250px;
-  height: 500px;
-  background-color: #e17992;
   transform: translateX(0);
-}
-@media (min-width: 768px) {
-  .mobile-container.is-open .mobile-content {
-    height: 1000px;
-  }
+  transition: transform 250ms linear;
 }
 
 .btn-burger {
@@ -376,8 +378,8 @@ address {
 .hero-cover {
   position: relative;
   background-color: #ffb8ca;
-  height: 502px;
-  overflow-y: hidden;
+  height: 420px;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .hero-cover {
@@ -395,7 +397,7 @@ address {
 .hero-container {
   position: relative;
   z-index: 10;
-  padding-top: 193px;
+  padding-top: 110px;
 }
 @media (max-width: 767px) {
   .hero-container {
@@ -611,30 +613,38 @@ address {
   }
 }
 
+.hero-ice-container {
+  position: relative;
+}
+
+.hero-wrapping {
+  position: relative;
+}
+
 .hero-circle {
   position: absolute;
-  top: 83px;
-  left: 36px;
+  top: -10px;
+  left: -85px;
   width: 345px;
   height: 345px;
   background-color: #ffa5ba;
   border-radius: 50%;
-  z-index: 0;
+  z-index: -1;
 }
 @media (min-width: 768px) {
   .hero-circle {
     width: 323px;
     height: 323px;
-    top: -19%;
-    left: 41%;
+    top: -40px;
+    left: -70px;
   }
 }
 @media (min-width: 1050px) {
   .hero-circle {
     width: 538px;
     height: 538px;
-    top: -75px;
-    left: 36%;
+    top: -50px;
+    left: -120px;
   }
 }
 
@@ -645,13 +655,16 @@ address {
 }
 @media (min-width: 768px) {
   .hero-link {
-    display: block;
+    border: none;
     width: 18px;
     height: 18px;
     border-radius: 50%;
     background-color: #ffffff;
     margin-top: 7px;
     margin-left: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media (min-width: 1050px) {
@@ -662,9 +675,30 @@ address {
   }
 }
 
+.hero-link:hover,
+.hero-link:focus {
+  background-color: #d41443;
+  outline: none;
+}
+
+.hero-arrow {
+  width: 8px;
+  height: 8px;
+  fill: #d41443;
+}
+
+.hero-link:hover > .hero-arrow,
+.hero-link:focus > .hero-arrow {
+  fill: #ffffff;
+}
+
 .hero-icecream {
   position: absolute;
   z-index: 2;
+  width: 171px;
+  height: 410px;
+  top: 10px;
+  left: 37%;
 }
 @media (min-width: 768px) {
   .hero-icecream {
@@ -925,7 +959,11 @@ address {
   align-items: center;
 }
 .arrow-button:hover, .arrow-button:focus {
-  border: 1px solid #d41443;
+  outline: none;
+  background-color: #d41443;
+}
+.arrow-button:hover .arrow-icon, .arrow-button:focus .arrow-icon {
+  fill: #ffffff;
 }
 
 .arrow-icon {
@@ -936,7 +974,7 @@ address {
 
 .absolute-block {
   position: absolute;
-  bottom: 400px;
+  bottom: 360px;
 }
 @media (min-width: 480px) {
   .absolute-block {
@@ -1163,7 +1201,12 @@ address {
   }
 }
 .cow-link:hover, .cow-link:focus {
-  background-color: #ecebeb;
+  outline: none;
+  color: #ffffff;
+  background-color: #d41443;
+}
+.cow-link:hover .cow-link-icon, .cow-link:focus .cow-link-icon {
+  fill: #ffffff;
 }
 
 .cow-link-icon {
@@ -1486,6 +1529,7 @@ address {
 }
 .slider-block .swiper-pagination-bullet-active {
   background-color: #d31342;
+  outline: none;
 }
 
 .cards-background {
@@ -1770,8 +1814,8 @@ address {
 
 .button-dark {
   width: 161px;
-  color: #ffffff;
-  background-color: #d41443;
+  color: #d41443;
+  background-color: #ffffff;
 }
 @media (min-width: 768px) {
   .button-dark {
@@ -1783,9 +1827,14 @@ address {
     width: 198px;
   }
 }
-.button-dark:hover {
+.button-dark:hover, .button-dark:focus {
   cursor: pointer;
-  background-color: #c7133e;
+  background-color: #d41443;
+  color: #ffffff;
+  outline: none;
+}
+.button-dark:hover .cards-icon, .button-dark:focus .cards-icon {
+  fill: #ffffff;
 }
 
 .button-light {
@@ -1803,9 +1852,14 @@ address {
     width: 180px;
   }
 }
-.button-light:hover {
+.button-light:hover, .button-light:focus {
   cursor: pointer;
-  background-color: #ecebeb;
+  background-color: #d41443;
+  color: #ffffff;
+  outline: none;
+}
+.button-light:hover .cards-icon, .button-light:focus .cards-icon {
+  fill: #ffffff;
 }
 
 .cards-icon {
@@ -1820,10 +1874,7 @@ address {
   }
 }
 
-.button-dark .cards-icon {
-  fill: #ffffff;
-}
-
+.button-dark .cards-icon,
 .button-light .cards-icon {
   fill: #d41443;
 }
@@ -1897,7 +1948,11 @@ address {
   background-color: #fea5bb;
 }
 .social-icons-link:hover, .social-icons-link:focus {
+  outline: none;
   background-color: #d41443;
+}
+.social-icons-link:hover .social-icons-svg, .social-icons-link:focus .social-icons-svg {
+  fill: #ffffff;
 }
 
 .contact-us {
