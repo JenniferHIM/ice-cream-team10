@@ -10,4 +10,4 @@ var e;function t(e){return(t="function"==typeof Symbol&&"symbol"==typeof Symbol.
 },{"./libs/swiper/swiper.min":"lj9F","../css/swiper.min.css":"kdLZ"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/slider");
 },{"./sass/main.scss":"clu1","./js/slider":"wzuc"}]},{},["Focm"], null)
-//# sourceMappingURL=/ice-cream-team10/src.ed8297d4.js.map
+//# sourceMappingURL=/ice-cream-team10/src.8e17273d.js.map
