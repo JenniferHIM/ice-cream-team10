@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-.social-icons-link:hover, .social-icons-link:focus, .slider-block .swiper-pagination-bullet, .cow-link:hover, .cow-link:focus, .nav-link:hover, .nav-link:focus, .main-nav .nav-link:hover, .main-nav .nav-link:focus {
+.social-icons-link:hover, .social-icons-link:focus, .social-icons-link, .cosial-list .social-icons-svg, .cards-icon, .button-light, .button-dark, .slider-block .swiper-pagination-bullet, .cow-link-icon, .cow-link, .arrow-icon, .arrow-button, .hero-arrow, .hero-link, .hero-btn, .nav-link, .btn-burger, .menu-button, .btn-icon, .main-nav .nav-link {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -127,6 +127,11 @@ address {
   font-style: normal;
 }
 
+.body-cover {
+  position: relative;
+  overflow: hidden;
+}
+
 .header-section {
   background-color: #ffb8ca;
 }
@@ -134,13 +139,6 @@ address {
 .header-container {
   padding-bottom: 16px;
   padding-top: 16px;
-}
-@media (min-width: 768px) {
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 @media (min-width: 1050px) {
   .header-container {
@@ -157,12 +155,6 @@ address {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-@media (min-width: 1050px) {
-  .main-nav {
-    display: flex;
-    align-items: center;
-  }
 }
 .main-nav .logo-link {
   display: flex;
@@ -233,6 +225,8 @@ address {
     padding-right: 37px;
     background-color: #ffffff;
     color: #d41443;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   .btn-header:hover, .btn-header:focus {
     background-color: #d41443;
@@ -259,6 +253,10 @@ address {
   border: none;
   background-color: transparent;
   fill: #d41443;
+  z-index: 55;
+}
+.menu-button:hover, .menu-button:focus {
+  outline: none;
 }
 @media (min-width: 768px) {
   .menu-button {
@@ -281,18 +279,6 @@ address {
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
-  overflow: scroll;
-}
-@media (min-width: 768px) {
-  .menu-button.is-open {
-    position: absolute;
-    top: 10px;
-    right: 255px;
-    z-index: 100;
-    background-color: #e18298;
-    transform: translateY(25%);
-    transition: transform 500ms linear;
-  }
 }
 
 .menu-button .icon-menu-close {
@@ -313,15 +299,12 @@ address {
   top: 0;
   right: 0;
   width: 250px;
-  height: 500px;
+  height: 502px;
   background-color: #e17992;
   padding: 60px 20px;
   z-index: 55;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  overflow: auto;
   transform: translateX(100%);
+  transition: transform 250ms linear;
 }
 @media (min-width: 768px) {
   .mobile-container {
@@ -335,12 +318,8 @@ address {
 }
 
 .mobile-container.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: initial;
-  overflow: scroll;
+  box-shadow: -1px 1px 17px 0px rgba(0, 0, 0, 0.75);
   transform: translateX(0);
-  transition: transform 250ms linear;
 }
 
 .btn-burger {
@@ -349,6 +328,14 @@ address {
   margin-top: 20px;
   background-color: #ffffff;
   color: #d41443;
+}
+.btn-burger:hover, .btn-burger:focus {
+  outline: none;
+  background-color: #d41443;
+  color: #ffffff;
+}
+.btn-burger:hover .btn-icon, .btn-burger:focus .btn-icon {
+  fill: #ffffff;
 }
 
 .mobile-menu {
@@ -466,9 +453,12 @@ address {
   }
 }
 
-@media (max-width: 767px) {
+.hero-amount {
+  display: none;
+}
+@media (min-width: 480px) {
   .hero-amount {
-    display: none;
+    display: block;
   }
 }
 @media (min-width: 768px) {
@@ -547,6 +537,11 @@ address {
   }
 }
 
+@media (min-width: 480px) {
+  .hero-wrap {
+    display: flex;
+  }
+}
 @media (min-width: 768px) {
   .hero-wrap {
     display: flex;
@@ -705,7 +700,7 @@ address {
     width: 143px;
     height: 336px;
     top: -19px;
-    left: 50%;
+    left: 45%;
   }
 }
 @media (min-width: 1050px) {
@@ -748,6 +743,15 @@ address {
   position: absolute;
   z-index: 2;
   display: none;
+}
+@media (min-width: 480px) {
+  .hero-girl {
+    display: block;
+    width: 198px;
+    height: 163px;
+    top: 156px;
+    left: -130%;
+  }
 }
 @media (min-width: 768px) {
   .hero-girl {
@@ -978,7 +982,7 @@ address {
 }
 @media (min-width: 480px) {
   .absolute-block {
-    bottom: 310px;
+    bottom: 280px;
   }
 }
 @media (min-width: 768px) {
@@ -1116,6 +1120,13 @@ address {
 
 .cow-image {
   margin-bottom: 46px;
+}
+@media (min-width: 480px) {
+  .cow-image {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 @media (min-width: 768px) {
   .cow-image {
@@ -1541,10 +1552,16 @@ address {
 }
 
 .cards {
-  max-width: 320px;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding: 86px 50px 113px 50px;
+  width: 100%;
+}
+@media (min-width: 480px) {
+  .cards {
+    max-width: 520px;
+  }
 }
 @media (min-width: 768px) {
   .cards {
@@ -1814,6 +1831,7 @@ address {
 
 .button-dark {
   width: 161px;
+  margin-right: 10px;
   color: #d41443;
   background-color: #ffffff;
 }
@@ -1883,6 +1901,14 @@ address {
   background-color: #fff5f6;
 }
 
+@media (min-width: 480px) {
+  .footer-container {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
 @media (min-width: 768px) {
   .footer-container {
     display: flex;
